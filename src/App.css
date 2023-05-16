@@ -3,8 +3,8 @@
   padding: 0;
 }
 .container {
-  background-color: rgb(30, 49, 66);
-  width: 35%;
+  background-color: #F7D4C3;
+  width: 40%;
   margin: auto;
 }
 #part1 {
@@ -12,11 +12,11 @@
 }
 .fa-long-arrow-alt-left {
   font-size: 3rem;
-  color: rgb(31, 148, 113);
+  color: #84F056;
 }
 .fa-volume-up {
   font-size: 3rem;
-  color: orangered;
+  color: #E05843;
   float: right;
 }
 #part2 {
@@ -25,7 +25,7 @@
   justify-content: center;
 }
 .player {
-  color: rgb(17, 219, 105);
+  color:#B566FA;
   /* border: 1px solid white; */
   display: inline-block;
   width: 25%;
@@ -35,7 +35,7 @@
 }
 .fa-times {
   font-size: 80px;
-  color: orangered;
+  color:#E05843;
   margin: 10px;
   font-weight: 400;
 }
@@ -45,7 +45,7 @@
   display: inline-block;
   width: 47%;
   text-align: center;
-  color: azure;
+  color:#B566FA;
   /* margin-top: -40% */
 }
 #score span {
@@ -55,7 +55,7 @@
 
 .fa-circle {
   font-size: 80px;
-  color: rgb(17, 219, 105);
+  color: #84F056;
   margin: 10px;
   font-weight: 400;
 }
@@ -70,9 +70,10 @@
     margin: 0 2%;
 } */
 .grid-container {
-  display: grid;
+  display: grid; 
   grid-template-columns: 33.3% 33.3% auto;
-  /* background-color: #2196F3; */
+  background-color:#c7f3e6;
+ 
   /* padding: 10px; */
 }
 .grid-item {
@@ -87,6 +88,9 @@
   justify-content: center;
   font-family: cursive;
 }
+.grid-item:hover{
+  background-color: rgb(128, 83, 91);
+}
 #part4 {
   margin: 8% 5%;
   width: 90%;
@@ -97,7 +101,7 @@
   padding-bottom: 5%;
 }
 .btn-reset {
-  background-color: rgb(31, 148, 113);
+  background-color: #84F056;
   color: #242322;
   border-radius: 20px;
   width: 40%;
@@ -106,7 +110,7 @@
   font-size: 25px;
 }
 .btn-again {
-  background-color: orangered;
+  background-color: #E05843;
   color: #242322;
   border-radius: 20px;
   width: 40%;
@@ -117,16 +121,16 @@
 }
 
 .red {
-  color: orangered;
+  color: #E05843;
 }
 .green {
-  color: rgb(17, 219, 105);
+  color: #84F056;
 }
 
 .result {
   font-size: 30px;
   font-weight: 800;
-  color: white;
+  color: #B566FA;
   text-align: center;
   margin: 5% 0;
   font-family: cursive;
@@ -195,6 +199,10 @@
   .grid-item {
     height: 100px;
   }
+  .grid-item:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
   .btn-again {
     height: 50px;
     font-size: 10px;
@@ -207,3 +215,34 @@
     margin: 4% 5%;
   }
 }
+.tile-animation {
+  animation: tileScale 0.4s ease-in-out;
+}
+.winning-tile {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes tileScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+

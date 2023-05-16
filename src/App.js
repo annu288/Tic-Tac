@@ -3,21 +3,17 @@ import Tile from "./components/Tile";
 import { useState, useEffect } from "react";
 
 const winnerCombination = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+  [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+  [0, 4, 8], [2, 4, 6] // diagonals
+    ];
 
 function App() {
   const [grid, setGrid] = useState(Array(9).fill(""));
   const [player, setPlayer] = useState("O");
   const [score, setScore] = useState({ X: 0, O: 0 });
   const [winner, setWinner] = useState("");
+  
 
   function checkWinner() {
     // console.log("player checkWinner", player);
@@ -41,6 +37,8 @@ function App() {
   }
 
   function tileClick(event) {
+    event.target.classList.add("tile-animation");
+   
     // This is added to prevent overrider the current tile value
     if (grid[event.target.id] !== "" || winner !== "") return;
 
@@ -58,6 +56,7 @@ function App() {
     } else {
       setPlayer("X");
     }
+ 
   }
 
   useEffect(() => {
@@ -77,14 +76,15 @@ function App() {
   //     // alert(`Player ${winner} won the game`);
   //   }
   // }, [score]);
+ 
 
   return (
     <>
-      <div className="container">
+      <div className="container"> 
         <div className="result blink_me">
-          {/* <i className="fas fa-long-arrow-alt-left"></i>
-          <i className="fas fa-volume-up"></i> */}
+         
           {winner !== "" ? "Player " + winner + " won the game" : ""}
+         
         </div>
         <div id="part2">
           <div id="player1" className="player">
@@ -129,9 +129,12 @@ function App() {
             <button className=" btn-again" onClick={playAgain}>
               PLAY AGAIN
             </button>
+            
           </div>
         </div>
+        
       </div>
+      
     </>
   );
 }
